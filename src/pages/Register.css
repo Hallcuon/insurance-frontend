@@ -1,0 +1,123 @@
+/* Основний контейнер */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #121212; /* Темний фон */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Форма реєстрації */
+.register-form {
+  max-width: 400px;
+  width: 100%;
+  background-color: #1F1F1F; /* Темний фон для форми */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Легка тінь */
+  text-align: center;
+  border: 1px solid #333;
+}
+
+/* Заголовок форми */
+.register-form h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #BB86FC; /* Фіолетовий акцент */
+}
+
+/* Поля вводу */
+.register-form .form-group {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #E0E0E0;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2C2C2C;
+  color: #E0E0E0;
+  box-sizing: border-box;
+}
+
+.register-form input::placeholder {
+  color: #888;
+}
+
+/* Чекбокс */
+.register-form .form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.register-form .form-check input {
+  margin-right: 0.5rem;
+}
+
+/* Кнопка */
+.register-form .btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #BB86FC;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form .btn:hover {
+  background-color: #3700B3;
+}
+
+/* Посилання */
+.register-form .login-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #BB86FC;
+}
+
+.register-form .login-link a {
+  color: #BB86FC;
+  text-decoration: none;
+}
+
+.register-form .login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Повідомлення про помилку або успіх */
+.alert {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.alert.success {
+  background-color: #198754;
+  color: #FFFFFF;
+}
+
+.alert.danger {
+  background-color: #DC3545;
+  color: #FFFFFF;
+}

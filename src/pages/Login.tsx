@@ -1,55 +1,57 @@
-import { useState } from 'react'
-import API from '../services/api'
-import { useNavigate } from 'react-router-dom'
-import AlertMessage from '../components/AlertMessage'
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import API from '../services/api';
+import './Login.css';
 
 export default function Login() {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [alert, setAlert] = useState<{ message: string, type: 'success' | 'danger' } | null>(null)
-  const navigate = useNavigate()
+  const [formData, setFormData] = useState({ username: '', password: '' });
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      const response = await API.post('token/', { username, password })
-      localStorage.setItem('access', response.data.access)
-      localStorage.setItem('refresh', response.data.refresh)
-      setAlert({ message: 'Успішний вхід!', type: 'success' })
-      setTimeout(() => navigate('/dashboard'), 1000)
-    } catch (error) {
-      setAlert({ message: 'Невірний логін або пароль', type: 'danger' })
-      console.error(error)
+      const response = await API.post('token/', formData);
+      localStorage.setItem('access', response.data.access);
+      localStorage.setItem('refresh', response.data.refresh);
+      navigate('/dashboard');
+    } catch (err) {
+      setError('Невірний логін або пароль');
     }
-  }
+  };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '400px' }}>
-      <h2 className="mb-4 text-center">Вхід</h2>
-      {alert && <AlertMessage {...alert} onClose={() => setAlert(null)} />}
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Логін</label>
-          <input
-            type="text"
-            className="form-control"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            required
-          />
+    <main className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
+        <h2>Логін</h2>
+        {error && <div className="error-message">{error}</div>}
+        <input
+          type="text"
+          name="username"
+          placeholder="Ім'я користувача"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Пароль"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Увійти</button>
+        <div className="register-link">
+          <span>Немає облікового запису? </span>
+          <Link to="/register">Зареєструватися</Link>
         </div>
-        <div className="mb-3">
-          <label className="form-label">Пароль</label>
-          <input
-            type="password"
-            className="form-control"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary w-100">Увійти</button>
       </form>
-    </div>
-  )
+    </main>
+  );
 }

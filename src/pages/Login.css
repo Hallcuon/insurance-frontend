@@ -1,0 +1,90 @@
+/* Основний контейнер */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Займає всю висоту вікна */
+  width: 100vw; /* Займає всю ширину вікна */
+  background-color: #121212; /* Темний фон */
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Форма входу */
+.login-form {
+  max-width: 400px; /* Максимальна ширина форми */
+  width: 100%; /* Займає всю доступну ширину */
+  background-color: #1F1F1F; /* Темний фон для форми */
+  padding: 2rem; /* Внутрішні відступи */
+  border-radius: 8px; /* Закруглені кути */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Легка тінь */
+  text-align: center;
+  border: 1px solid #333; /* Бордер для виділення форми */
+}
+
+/* Заголовок форми */
+.login-form h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #BB86FC; /* Фіолетовий акцент */
+}
+
+/* Поля вводу */
+.login-form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 1px solid #333; /* Темний бордер */
+  border-radius: 4px;
+  background-color: #2C2C2C; /* Темний фон для полів вводу */
+  color: #E0E0E0; /* Світлий текст */
+  box-sizing: border-box;
+}
+
+.login-form input::placeholder {
+  color: #888; /* Світло-сірий текст для плейсхолдера */
+}
+
+/* Кнопка входу */
+.login-form button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #FFFFFF; /* Білий текст */
+  background-color: #BB86FC; /* Фіолетовий акцент */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  background-color: #3700B3; /* Темніший фіолетовий при наведенні */
+}
+
+/* Посилання */
+.login-form a {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #BB86FC; /* Фіолетовий акцент */
+  text-decoration: none;
+}
+
+.login-form a:hover {
+  text-decoration: underline;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 1.5rem;
+  }
+
+  .login-form h2 {
+    font-size: 1.25rem;
+  }
+}

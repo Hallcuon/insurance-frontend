@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Запобігаємо горизонтальному скролу */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо контент по горизонталі */
+  justify-content: center; /* Центруємо контент по вертикалі */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212; /* Темний фон */
+  color: #E0E0E0; /* Світлий текст */
+  line-height: 1.6;
+}
+
+a {
+  color: #BB86FC; /* Фіолетовий акцент */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
